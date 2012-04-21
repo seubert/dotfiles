@@ -10,3 +10,6 @@
 [submodule "vim/bundle/colorschemes"]
 	path = vim/bundle/colorschemes
 	url = git@github.com:flazz/vim-colorschemes.git
+[submodule "vim/bundle/prolog.vim"]
+	path = vim/bundle/prolog.vim
+	url = git://github.com/adimit/prolog.vim.git
