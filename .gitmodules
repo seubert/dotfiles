@@ -7,3 +7,6 @@
 [submodule "vim/bundle/badwolf"]
 	path = vim/bundle/badwolf
 	url = git://github.com/sjl/badwolf.git
+[submodule "vim/bundle/colorschemes"]
+	path = vim/bundle/colorschemes
+	url = git@github.com:flazz/vim-colorschemes.git
