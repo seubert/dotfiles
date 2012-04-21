@@ -13,3 +13,6 @@
 [submodule "vim/bundle/prolog.vim"]
 	path = vim/bundle/prolog.vim
 	url = git://github.com/adimit/prolog.vim.git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
