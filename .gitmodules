@@ -19,9 +19,9 @@
 [submodule "vim/bundle/vim-notes"]
 	path = vim/bundle/vim-notes
 	url = git://github.com/xolox/vim-notes.git
-[submodule "vim/bundle/vim-powerline"]
-	path = vim/bundle/vim-powerline
-	url = git@github.com:seubert/vim-powerline.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/seubert/oh-my-zsh.git
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = git://github.com/seubert/vim-powerline.git
