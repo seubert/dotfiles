@@ -29,6 +29,10 @@ set nocompatible
 " Always show the statusline
 set laststatus=2
 
+" Make fancy symbols w/ Powerline
+let g:Powerline_symbols = 'fancy'
+
+
 " Syntax highlighting
 syntax on
 
@@ -40,6 +44,9 @@ set ruler
 
 " Show line numbers
 set nu
+
+" Highlight line w/ cursor
+set cursorline
 
 " Show additional info in the command line (very last line on screen) where
 " appropriate.
@@ -53,6 +60,9 @@ set shiftround
 
 " Show matching brackets/parentheses when navigating around
 set showmatch
+
+set shell=zsh
+
 " Default autoformatting options:
 " t: automatically hard-wrap based on textwidth
 " c: do the same for comments, but autoinsert comment character too
@@ -67,7 +77,7 @@ set showmatch
 " line in a paragraph may have a different indent than the rest.
 set formatoptions=tcroqn2
 " Start scrolling up/down when cursor gets to 3 lines away from window edge
-set scrolloff=3
+set scrolloff=4
 " Allow backspaces to eat indents, end-of-line/beginning-of-line characters
 set backspace=indent,eol,start
 
