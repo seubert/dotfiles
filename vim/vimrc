@@ -22,6 +22,7 @@ call pathogen#helptags()
 " (lots of shit from "Ghoul" (halloween name?) here)
 filetype plugin indent on
 filetype detect
+filetype on
 
 " Vim is better
 set nocompatible
