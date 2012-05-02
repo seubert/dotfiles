@@ -118,6 +118,7 @@ au BufRead,BufNewFile *.java set expandtab
 " Ada indentation
 au BufRead,BufNewFile *.adb set shiftwidth=3
 au BufRead,BufNewFile *.adb set tabstop=3
+au BufRead,BufNewFile *.adb set expandtab
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
