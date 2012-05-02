@@ -4,3 +4,8 @@ If you have any questions about settings email me at alexseubert@gmail.com.
 
 These will be in a state of flux perpetually and I may or may not recall what I
 was intending to do with any given setting.
+
+Special tmux comment: I have set up separate tmux config files to allow for the
+use of tmux-MacOSX-pasteboard and use a shell script locally on OS X to force
+the use of the OSX config.  See
+https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/issues/8 for details.
