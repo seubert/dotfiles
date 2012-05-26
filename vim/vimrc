@@ -110,10 +110,10 @@ endf
 au BufRead,BufNewFile *.c,*.h call Select_c_style()
 au BufRead,BufNewFile Makefile* set noexpandtab
 
-" Some Java settings for indentation
-au BufRead,BufNewFile *.java set shiftwidth=2
-au BufRead,BufNewFile *.java set tabstop=2
-au BufRead,BufNewFile *.java set expandtab
+" Some Java and Ruby settings for indentation
+au BufRead,BufNewFile *.java,*.rb set shiftwidth=2
+au BufRead,BufNewFile *.java,*.rb set tabstop=2
+au BufRead,BufNewFile *.java,*.rb set expandtab
 
 " Ada indentation
 au BufRead,BufNewFile *.adb set shiftwidth=3
