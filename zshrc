@@ -46,6 +46,7 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
 alias gvim="UBUNTU_MENUPROXY=0 gvim"
+alias rake='noglob rake'
 
 setopt AUTO_CD
 
