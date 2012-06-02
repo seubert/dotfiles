@@ -31,3 +31,6 @@
 [submodule "vim/bundle/scala-vim-support"]
 	path = vim/bundle/scala-vim-support
 	url = git://github.com/seubert/scala-vim-support.git
+[submodule "vim/bundle/vim-octopress"]
+	path = vim/bundle/vim-octopress
+	url = https://github.com/tangledhelix/vim-octopress.git
