@@ -56,3 +56,6 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # "That makes pip detect an active virtualenv and install to it, without having
 # to pass it the -E parameter."
 export PIP_RESPECT_VIRTUALENV=true
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
