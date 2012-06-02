@@ -45,6 +45,8 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
+alias gvim="UBUNTU_MENUPROXY=0 gvim"
+
 setopt AUTO_CD
 
 source /usr/local/bin/virtualenvwrapper.sh
