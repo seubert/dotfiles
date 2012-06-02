@@ -178,7 +178,7 @@ set nofoldenable
 set foldlevel=1
 " ----------------------------------------------------------------------------
 " Misc shit like colors and keybinds
-colorscheme badwolf
+colorscheme molokai
 "set background=dark
 set mouse=a
 set t_Co=256
