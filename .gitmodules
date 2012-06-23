@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-octopress"]
 	path = vim/bundle/vim-octopress
 	url = https://github.com/tangledhelix/vim-octopress.git
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
