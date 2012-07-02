@@ -48,6 +48,10 @@ bindkey '^N' history-search-forward
 alias gvim="UBUNTU_MENUPROXY=0 gvim"
 alias rake='noglob rake'
 
+# Trying to get vim in tmux to work with correct coloration
+export TERM="screen-256color"
+
+
 setopt AUTO_CD
 
 source /usr/local/bin/virtualenvwrapper.sh
