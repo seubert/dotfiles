@@ -1,4 +1,5 @@
 source ~/dotfiles/vim/bundle/pathogen.vim
+source ~/dotfiles/vim/tokens.vim
 
 call pathogen#infect('~/dotfiles/vim/bundle')
 call pathogen#helptags()
