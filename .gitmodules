@@ -46,3 +46,6 @@
 [submodule "vim/bundle/refheap.vim"]
 	path = vim/bundle/refheap.vim
 	url = git://github.com/Raynes/refheap.vim.git
+[submodule "vim/bundle/vimclojure-easy"]
+	path = vim/bundle/vimclojure-easy
+	url = git://github.com/daveray/vimclojure-easy.git

@@ -1,5 +1,4 @@
 source ~/dotfiles/vim/bundle/pathogen.vim
-source ~/dotfiles/vim/tokens.vim
 
 call pathogen#infect('~/dotfiles/vim/bundle')
 call pathogen#helptags()
@@ -111,10 +110,10 @@ endf
 au BufRead,BufNewFile *.c,*.h call Select_c_style()
 au BufRead,BufNewFile Makefile* set noexpandtab
 
-" Some Java and Ruby settings for indentation
-au BufRead,BufNewFile *.java,*.rb set shiftwidth=2
-au BufRead,BufNewFile *.java,*.rb set tabstop=2
-au BufRead,BufNewFile *.java,*.rb set expandtab
+" Some Java, C++, and Ruby settings for indentation
+au BufRead,BufNewFile *.java,*.rb,*.cpp set shiftwidth=2
+au BufRead,BufNewFile *.java,*.rb,*.cpp set tabstop=2
+au BufRead,BufNewFile *.java,*.rb,*.cpp set expandtab
 
 " Ada indentation
 au BufRead,BufNewFile *.adb set shiftwidth=3
@@ -147,6 +146,17 @@ au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoption
 " Python: yes
 " C: yes
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
+
+" Settings for VimClojure
+let vimclojure#FuzzyIndent = 1
+let vimclojure#HighlightContrib = 1
+let vimclojure#HighlightBuiltins = 1           " Rainbow parentheses'!
+let vimclojure#DynamicHighlighting = 1
+let vimclojure#ParenRainbow = 1      " Highlight Clojure's builtins
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = $HOME . "/.vim/lib/vimclojure-nailgun-client"
+
+let g:paredit_mode = 0
 
 
 " ----------------------------------------------------------------------------
