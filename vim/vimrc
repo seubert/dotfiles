@@ -107,13 +107,13 @@ fu Select_c_style()
         set expandtab
     en
 endf
-au BufRead,BufNewFile *.c,*.h call Select_c_style()
+au BufRead,BufNewFile *.c call Select_c_style()
 au BufRead,BufNewFile Makefile* set noexpandtab
 
-" Some Java, C++, and Ruby settings for indentation
-au BufRead,BufNewFile *.java,*.rb,*.cpp set shiftwidth=2
-au BufRead,BufNewFile *.java,*.rb,*.cpp set tabstop=2
-au BufRead,BufNewFile *.java,*.rb,*.cpp set expandtab
+" Some Java, C++, HTML/PHP, and Ruby settings for indentation
+au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html set shiftwidth=2
+au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html set tabstop=2
+au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html set expandtab
 
 " Ada indentation
 au BufRead,BufNewFile *.adb set shiftwidth=3
