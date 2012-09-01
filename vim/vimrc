@@ -111,9 +111,9 @@ au BufRead,BufNewFile *.c call Select_c_style()
 au BufRead,BufNewFile Makefile* set noexpandtab
 
 " Some Java, C++, HTML/PHP, and Ruby settings for indentation
-au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html set shiftwidth=2
-au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html set tabstop=2
-au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html set expandtab
+au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set shiftwidth=2
+au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set tabstop=2
+au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set expandtab
 
 " Ada indentation
 au BufRead,BufNewFile *.adb set shiftwidth=3
