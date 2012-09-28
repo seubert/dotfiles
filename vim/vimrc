@@ -96,8 +96,8 @@ au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.php set tabstop=4
 " This will affect Ctrl-T and 'autoindent'.
 " Python: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*.pyw,*.php set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw,*.php set expandtab
+au BufRead,BufNewFile *.py,*.pyw,*.php,*.ctp set shiftwidth=4
+au BufRead,BufNewFile *.py,*.pyw,*.php,*.ctp set expandtab
 fu Select_c_style()
     if search('^\t', 'n', 150)
         set shiftwidth=8
@@ -110,7 +110,7 @@ endf
 au BufRead,BufNewFile *.c call Select_c_style()
 au BufRead,BufNewFile Makefile* set noexpandtab
 
-au BufRead,BufNewFile *.php set softtabstop=4
+au BufRead,BufNewFile *.php,*.ctp set softtabstop=4
 
 " Some Java, C++, HTML/PHP, and Ruby settings for indentation
 au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set shiftwidth=2
