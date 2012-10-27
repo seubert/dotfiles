@@ -199,3 +199,11 @@ set t_Co=256
 " From stevelosh.com/blog/2011/06/django-advice
 nnoremap _dt :set ft=htmldjango<CR>
 nnoremap _pd :set ft=python.django<CR>
+
+" Auto-detect some django-y filenames
+au BufNewFile,BufRead admin.py     setlocal filetype=python.django
+au BufNewFile,BufRead urls.py      setlocal filetype=python.django
+au BufNewFile,BufRead models.py    setlocal filetype=python.django
+au BufNewFile,BufRead views.py     setlocal filetype=python.django
+au BufNewFile,BufRead settings.py  setlocal filetype=python.django
+au BufNewFile,BufRead forms.py     setlocal filetype=python.django
