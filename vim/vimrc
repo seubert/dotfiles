@@ -149,17 +149,6 @@ au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoption
 " C: yes
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
-" Settings for VimClojure
-let vimclojure#FuzzyIndent = 1
-let vimclojure#HighlightContrib = 1
-let vimclojure#HighlightBuiltins = 1           " Rainbow parentheses'!
-let vimclojure#DynamicHighlighting = 1
-let vimclojure#ParenRainbow = 1      " Highlight Clojure's builtins
-let vimclojure#WantNailgun = 1
-let vimclojure#NailgunClient = $HOME . "/.vim/lib/vimclojure-nailgun-client"
-
-let g:paredit_mode = 0
-
 
 " ----------------------------------------------------------------------------
 " The following section contains suggested settings.  While in no way required
@@ -205,3 +194,8 @@ set t_Co=256
 "    colorscheme badwolf
 "endif
 
+
+" Mappings to make django syntax highlight switches easier.
+" From stevelosh.com/blog/2011/06/django-advice
+nnoremap _dt :set ft=htmldjango<CR>
+nnoremap _pd :set ft=python.django<CR>
