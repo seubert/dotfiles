@@ -207,3 +207,8 @@ au BufNewFile,BufRead models.py    setlocal filetype=python.django
 au BufNewFile,BufRead views.py     setlocal filetype=python.django
 au BufNewFile,BufRead settings.py  setlocal filetype=python.django
 au BufNewFile,BufRead forms.py     setlocal filetype=python.django
+
+" Gist.vim settings
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
+
