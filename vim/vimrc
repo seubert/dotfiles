@@ -212,3 +212,8 @@ au BufNewFile,BufRead forms.py     setlocal filetype=python.django
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
 
+" Tab navigation mappings
+nmap <silent> <C-n> :tabnext<CR>
+nmap <silent> <C-p> :tabprev<CR>
+imap <silent> <C-n> <esc><C-n>
+imap <silent> <C-p> <esc><C-p>
