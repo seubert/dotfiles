@@ -49,3 +49,6 @@
 [submodule "vim/bundle/vimclojure-easy"]
 	path = vim/bundle/vimclojure-easy
 	url = git://github.com/daveray/vimclojure-easy.git
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
