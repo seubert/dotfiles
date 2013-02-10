@@ -34,7 +34,7 @@ ZSH_THEME="bunsen"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/opt/local/bin:/opt/local/sbin:/Users/alex/perl5/perlbrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Library/Frameworks/Python.framework/Versions/3.2/bin:/usr/local/bin:/usr/local/sbin:/usr/local/scala/scala-2.9.1.final/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/opt/local/bin:/home/alex/Apps/idea-IC-117.418/bin:/usr/local/lib/sbt/bin
+export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/opt/local/bin:/opt/local/sbin:/Users/alex/perl5/perlbrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Library/Frameworks/Python.framework/Versions/3.2/bin:/usr/local/bin:/usr/local/sbin:/usr/local/scala/scala-2.9.1.final/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/opt/local/bin:/home/alex/Apps/idea-IC-117.418/bin:/usr/local/lib/sbt/bin:/usr/local/smlnj-110.75/bin
 
 export EDITOR="vim"
 bindkey -v 

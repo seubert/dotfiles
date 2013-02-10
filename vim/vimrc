@@ -1,25 +1,16 @@
-source ~/dotfiles/vim/bundle/pathogen.vim
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
-call pathogen#infect('~/dotfiles/vim/bundle')
-call pathogen#helptags()
+" Github bundles
+Bundle 'sjl/badwolf'
+Bundle 'mattn/gist-vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-commentary'
+Bundle 'nvie/vim-flake8'
+Bundle 'Lokaltog/vim-powerline'
 
 
-" To use this file, source it in your own personal .vimrc file (``source
-" <filename>``) or, if you don't have a .vimrc file, you can just symlink to it
-" (``ln -s <this file> ~/.vimrc``).  All options are protected by autocmds
-" (read below for an explanation of the command) so blind sourcing of this file
-" is safe and will not affect your settings for non-Python or non-C files.
-"
-"
-" All setting are protected by 'au' ('autocmd') statements.  Only files ending
-" in .py or .pyw will trigger the Python settings while files ending in *.c or
-" *.h will trigger the C settings.  This makes the file "safe" in terms of only
-" adjusting settings for Python and C files.
-"
-" Only basic settings needed to enforce the style guidelines are set.
-" Some suggested options are listed but commented out at the end of this file.
-
-" (lots of shit from "Ghoul" (halloween name?) here)
 filetype plugin indent on
 filetype detect
 filetype on
@@ -32,7 +23,6 @@ set laststatus=2
 
 " Make fancy symbols w/ Powerline
 let g:Powerline_symbols = 'fancy'
-
 
 " Syntax highlighting
 syntax on
@@ -82,73 +72,37 @@ set scrolloff=4
 " Allow backspaces to eat indents, end-of-line/beginning-of-line characters
 set backspace=indent,eol,start
 
-" Copied shit from elsewhere mostly
-" Some shit to make MacVim look less GUI-y
+" Make MacVim look less GUI-y
 if has("gui_running")
     set guioptions=egmrt
 endif
 
-" Number of spaces that a pre-existing tab is equal to.
-" For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.php set tabstop=4
+" Indentation levels. See :help tabstop for details.
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+" Keep indentation level from previous line
+set autoindent
+" Don't unindent when I press Enter on an indented line
+set preserveindent
+" 'smartindent', however, screws up Python -- so turn it off
+set nosmartindent
 
-" What to use for an indent.
-" This will affect Ctrl-T and 'autoindent'.
-" Python: 4 spaces
-" C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*.pyw,*.php,*.ctp set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw,*.php,*.ctp set expandtab
-fu Select_c_style()
-    if search('^\t', 'n', 150)
-        set shiftwidth=8
-        set noexpandtab
-    el 
-        set shiftwidth=4
-        set expandtab
-    en
-endf
-au BufRead,BufNewFile *.c call Select_c_style()
-au BufRead,BufNewFile Makefile* set noexpandtab
-
-au BufRead,BufNewFile *.php,*.ctp set softtabstop=4
-
-" Some Java, C++, HTML/PHP, and Ruby settings for indentation
+" Some changes in indentation, mostly for C-style languages and Ruby.
 au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set shiftwidth=2
 au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set tabstop=2
-au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set expandtab
-
-" Ada indentation
-au BufRead,BufNewFile *.adb set shiftwidth=3
-au BufRead,BufNewFile *.adb set tabstop=3
-au BufRead,BufNewFile *.adb set expandtab
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
 
-" Display tabs at the beginning of a line in Python mode as bad.
+" Display tabs at the beginning of a line in Python mode as bad
+" and make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" Make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after 79 characters
 set textwidth=79
-
-" Turn off settings in 'formatoptions' relating to comment formatting.
-" - c : do not automatically insert the comment leader when wrapping based on
-"    'textwidth'
-" - o : do not insert the comment leader when using 'o' or 'O' from command mode
-" - r : do not insert the comment leader when hitting <Enter> in insert mode
-" Python: not needed
-" C: prevents insertion of '*' at the beginning of every line in a comment
-au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
-
-" Use UNIX (\n) line endings.
-" Only used for new files so as to not force existing files to change their
-" line endings.
-" Python: yes
-" C: yes
-au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
-
 
 " ----------------------------------------------------------------------------
 " The following section contains suggested settings.  While in no way required
@@ -159,19 +113,6 @@ set encoding=utf-8
 
 " For full syntax highlighting:
 let python_highlight_all=1
-syntax on``
-
-" Automatically indent based on file type 
-" filetype indent on
-
-" Keep indentation level from previous line
-set autoindent
-
-" Don't unindent when I press Enter on an indented line
-set preserveindent
-
-" 'smartindent', however, screws up Python -- so turn it off
-set nosmartindent
 
 " Folding based on indentation: ``
 set foldmethod=indent
@@ -179,24 +120,15 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 " ----------------------------------------------------------------------------
-" Misc shit like colors and keybinds
+" Miscellaneous - mostly colors and keybinds
 colorscheme badwolf
-"set background=dark
-set mouse=a
 set t_Co=256
 
-" Trying to fix colors with tmux
-"if !has("gui_running")
-"    set term=xterm
-    "colorscheme solarized
-"    set background=dark
-"else
-"    colorscheme badwolf
-"endif
-
+" Allow mouse
+set mouse=a
 
 " Mappings to make django syntax highlight switches easier.
-" From stevelosh.com/blog/2011/06/django-advice
+" See: http://stevelosh.com/blog/2011/06/django-advice
 nnoremap _dt :set ft=htmldjango<CR>
 nnoremap _pd :set ft=python.django<CR>
 
