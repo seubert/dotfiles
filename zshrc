@@ -15,7 +15,7 @@ ZSH_THEME="bunsen"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -34,7 +34,7 @@ ZSH_THEME="bunsen"
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/opt/local/bin:/opt/local/sbin:/Users/alex/perl5/perlbrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Library/Frameworks/Python.framework/Versions/3.2/bin:/usr/local/bin:/usr/local/sbin:/usr/local/scala/scala-2.9.1.final/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/opt/local/bin:/home/alex/Apps/idea-IC-117.418/bin:/usr/local/lib/sbt/bin:/usr/local/smlnj-110.75/bin
+export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/usr/local/sbin:/usr/texbin
 
 export EDITOR="vim"
 bindkey -v 
@@ -44,9 +44,6 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
-
-# alias gvim="UBUNTU_MENUPROXY=0 gvim"
-# alias rake='noglob rake'
 
 # Trying to get vim in tmux to work with correct coloration
 export TERM="screen-256color"
@@ -64,5 +61,5 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # to pass it the -E parameter."
 export PIP_RESPECT_VIRTUALENV=true
 
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-# [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+alias tl="tmux ls"
+alias tma="tmux attach-session -t"

@@ -53,6 +53,12 @@ set shiftround
 " Show matching brackets/parentheses when navigating around
 set showmatch
 
+" Change where splits show up
+set splitbelow
+set splitright
+
+set colorcolumn=+1
+
 set shell=zsh
 
 " Default autoformatting options:
