@@ -33,8 +33,7 @@ DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/usr/local/sbin:/usr/texbin
+export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/usr/local/sbin:/usr/texbin:/usr/local/go/bin:/usr/games/bin:/Users/alex/.cask/bin:/Applications/Racket\ v6.0/bin
 
 export EDITOR="vim"
 bindkey -v 
@@ -44,6 +43,11 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
+
+
+# noglobs for certain tools
+alias bower='noglob bower'
+
 
 # Trying to get vim in tmux to work with correct coloration
 export TERM="screen-256color"
@@ -63,3 +67,10 @@ export PIP_RESPECT_VIRTUALENV=true
 
 alias tl="tmux ls"
 alias tma="tmux attach-session -t"
+
+eval "$(rbenv init -)"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+gd() { godoc "$*" | less; }

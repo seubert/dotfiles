@@ -1,23 +1,40 @@
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-
-" Github bundles
-Bundle 'sjl/badwolf'
-Bundle 'mattn/gist-vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-commentary'
-Bundle 'nvie/vim-flake8'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'iynaix/django.vim'
-
-
-filetype plugin indent on
-filetype detect
-filetype on
-
 " Vim is better
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/vundle'
+
+" Github bundles
+Plugin 'sjl/badwolf'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'nvie/vim-flake8'
+Plugin 'bling/vim-airline'
+Plugin 'iynaix/django.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-rails'
+Plugin 'skammer/vim-css-color'
+Plugin 'indenthtml.vim'
+Plugin 'nginx.vim'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'wookiehangover/jshint.vim'
+Plugin 'mklabs/grunt.vim'
+" Plugin 'jnwhiteh/vim-golang'
+Plugin 'fatih/vim-go'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+
+call vundle#end()
+filetype plugin indent on
+
+filetype detect
+filetype on
 
 " Always show the statusline
 set laststatus=2
@@ -96,9 +113,13 @@ set preserveindent
 " 'smartindent', however, screws up Python -- so turn it off
 set nosmartindent
 
+" Wrap text after 79 characters
+set textwidth=79
+
 " Some changes in indentation, mostly for C-style languages and Ruby.
-au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set shiftwidth=2
-au BufRead,BufNewFile *.java,*.rb,*.cpp,*.h,*.html,*.css set tabstop=2
+au BufRead,BufNewFile *.js,*.rb,*.cpp,*.h,*.html,*.css,*.coffee set shiftwidth=2
+au BufRead,BufNewFile *.js,*.rb,*.cpp,*.h,*.html,*.css,*.coffee set tabstop=2
+au BufRead,BufNewFile *.js,*.rb,*.cpp,*.h,*.html,*.css,*.coffee set softtabstop=2
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
@@ -108,8 +129,9 @@ highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" Wrap text after 79 characters
-set textwidth=79
+" Go settings
+au BufRead,BufNewFile *.go set noexpandtab
+au BufRead,BufNewFile *.go set textwidth=0
 
 " ----------------------------------------------------------------------------
 " The following section contains suggested settings.  While in no way required
@@ -148,11 +170,53 @@ au BufNewFile,BufRead settings.py  setlocal filetype=python.django
 au BufNewFile,BufRead forms.py     setlocal filetype=python.django
 
 " Gist.vim settings
-let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
+let g:gist_post_private = 1
 
 " Tab navigation mappings
 nmap <silent> <C-n> :tabnext<CR>
 nmap <silent> <C-p> :tabprev<CR>
 imap <silent> <C-n> <esc><C-n>
 imap <silent> <C-p> <esc><C-p>
+
+" Open NERDTree by default
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
+
+" ----------------------------------------------------------------------------
+command! -nargs=* -complete=file -bang Rename :call Rename("<args>", "<bang>")
+
+function! Rename(name, bang)
+    let l:curfile = expand("%:p")
+    let l:curfilepath = expand("%:p:h")
+    let l:newname = l:curfilepath . "/" . a:name
+    let v:errmsg = ""
+    silent! exec "saveas" . a:bang . " " . fnameescape(l:newname)
+    if v:errmsg =~# '^$\|^E329'
+        if expand("%:p") !=# l:curfile && filewritable(expand("%:p"))
+            silent exec "bwipe! " . fnameescape(l:curfile)
+            if delete(l:curfile)
+                echoerr "Could not delete " . l:curfile
+            endif
+        endif
+    else
+        echoerr v:errmsg
+    endif
+endfunction
+
+
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
