@@ -5,7 +5,15 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/better-defaults"))
 
-(require 'cask "/usr/local/Cellar/cask/0.7.0/cask.el")
+;; check OS type
+(cond
+ ((string-equal system-type "darwin")   ; Mac OS X
+  (require 'cask "/usr/local/Cellar/cask/0.7.0/cask.el")
+  )
+ ((string-equal system-type "gnu/linux") ; linux
+  (require 'cask "/home/alex/.cask/cask.el")
+  )
+ )
 (cask-initialize)
 (require 'pallet)
 
@@ -37,8 +45,19 @@
                                                          default-directory ".jshintrc")))
                           (flymake-jshint-load)))
 
+(add-to-list 'auto-mode-alist
+             '("\\.pt\\'" . (lambda ()
+                              (html-mode))))
+
 ;; Get rid of the damn ding
 (setq visible-bell 1)
+
+;; scss settings
+(setq scss-compile-at-save nil)
+
+;; Share clipboard
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
 
 ;; auto-indent correctly, with the sizes I want
 (electric-indent-mode +1)
@@ -54,11 +73,6 @@
       display-time-24hr-format t)
 (display-time)
 
-;; Show the function name the cursor is in,
-;; display 'n/a' if it's not in one
-(which-function-mode)
-(setq which-func-unknown "n/a")
-
 ;; projectile-mode
 (projectile-global-mode)
 
@@ -69,6 +83,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+(setq org-agenda-include-diary t)
 
 ;; bind "l;" at the same time to M-x (basically)
 (require 'key-chord)
@@ -130,3 +145,8 @@
 ;; vagrant tramp enable!
 (eval-after-load 'tramp
   '(vagrant-tramp-enable))
+
+;; ag.el settings
+(setq ag-reuse-window 't)
+(setq ag-reuse-buffers 't)
+(setq ag-highlight-search t)
