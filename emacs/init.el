@@ -5,10 +5,16 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/better-defaults"))
 
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
 ;; check OS type
 (cond
  ((string-equal system-type "darwin")   ; Mac OS X
   (require 'cask "/usr/local/Cellar/cask/0.7.0/cask.el")
+  (set-exec-path-from-shell-PATH)
   )
  ((string-equal system-type "gnu/linux") ; linux
   (require 'cask "/home/alex/.cask/cask.el")
@@ -25,7 +31,7 @@
 
 (load-theme 'solarized-dark)
 (set-face-attribute 'default nil
-                    :family "Source Code Pro" :height 100 :weight 'normal)
+                    :family "Source Code Pro" :height 90 :weight 'normal)
 
 ;; Font size key bindings
 (global-set-key (kbd "s-=") 'text-scale-increase)	
@@ -96,13 +102,6 @@
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
-
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(if window-system (set-exec-path-from-shell-PATH))
 
 (use-package magit
   :bind ("C-c g" . magit-status))
